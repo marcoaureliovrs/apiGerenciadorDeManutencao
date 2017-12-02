@@ -68,7 +68,7 @@ module.exports = function(app){
     app.delete('/laboratorios/laboratorio/:id', function(req, res){
         let id = req.params.id;
         model
-		.remove({"_id": id})
+		.remove({"codLaboratorio": id})
 		.then(function() {
 			res.sendStatus(204);
 		}, function(error) {

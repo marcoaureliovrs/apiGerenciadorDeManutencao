@@ -1,8 +1,6 @@
 const supertest = require('supertest')
 const app = require('../index')
 var agent = supertest.agent(app)
-var equipamentoConsultado
-
 
 var equipamento = {
     "codEquipamento":"1",
@@ -46,8 +44,7 @@ describe("Rotina de Cadastro, Consulta, Atualização e Deleção de Manutençã
 			.expect(200)
 			.expect('Content-Type', /json/)
 			.expect(function(res) {
-				equipamentoConsultado = res.body
-				console.log(equipamentoConsultado)
+				console.log(res.body)
 			})
 			.end(function(err) {
       			done()
@@ -70,13 +67,11 @@ describe("Rotina de Cadastro, Consulta, Atualização e Deleção de Manutençã
     })
 
 	it ("Atualização dos detalhes da manutenção", function(done) {
-        delete equipamentoConsultado.__v
-		equipamentoConsultado.nomeFuncionarioSolicitante = "Marco Gorak"
-		console.log(equipamentoConsultado)
+		equipamento.nomeNomeEquipamento = "Radiografia convencional"
 
 		agent
-			.put("/equipamentos/equipamento/" + equipamentoConsultado._id)
-			.send(equipamentoConsultado)
+			.put("/equipamentos/equipamento/" + equipamento._id)
+			.send(equipamento)
 			.expect(200)
 			.expect(function(res) {
 				console.log(res.body);
@@ -88,7 +83,7 @@ describe("Rotina de Cadastro, Consulta, Atualização e Deleção de Manutençã
 
 	it ("Excluir Manutenção", function(done) {
 		agent
-			.delete("/equipamentos/equipamento/" + equipamentoConsultado._id)
+			.delete("/equipamentos/equipamento/" + equipamento.codEquipamento)
 			.expect(204)
 			.end(function(err) {
       			done()
