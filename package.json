@@ -1,0 +1,31 @@
+{
+  "name": "hackathondasa",
+  "version": "1.0.0",
+  "description": "Sistema para gerenciamento de manutenções",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon server.js",
+    "apidoc": "apidoc -i app/routes/ -o public/apidoc"
+  },
+  "keywords": [
+    "hackathon",
+    "dasa"
+  ],
+  "author": "Marco Santiago",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "express": "^4.16.2",
+    "express-validator": "^4.3.0",
+    "mongoose": "^4.13.5",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "apidoc": "^0.17.6",
+    "jest": "^21.2.1",
+    "mocha": "^4.0.1",
+    "supertest": "^3.0.0"
+  }
+}
