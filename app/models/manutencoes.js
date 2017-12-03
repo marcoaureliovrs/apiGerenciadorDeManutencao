@@ -4,11 +4,15 @@ var schema = mongoose.Schema({
         type: Object,
         required: true
     },
-    nomeLaboratorioSolicitante: {
+    nomeLaboratorioSolicitante: { //filial
 		type: String,
 		required: true
     },
     enderecoLaboratorioSolicitante: {
+        type: String,
+        required: true,
+    },
+    unidadeSolicitante:{
         type: String,
         required: true,
     },

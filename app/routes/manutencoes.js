@@ -34,6 +34,26 @@ module.exports = function(app){
         });
     });
 
+    //Metódo responsável por retornar a consulta de manutenções agendadas
+    app.get('/manutencoes/agendamentos/', function(req,res) {
+        var manutencao = req.body;
+
+
+        model
+        .find({"nomeLaboratorioSolicitante": manutencao.nomeLaboratorioSolicitante,
+                    "unidadeSolicitante": manutencao.unidadeSolicitante,
+                    "dataInicioManutencao":  {"$gte": manutencao.gte, "$lt": manutencao.lt}})
+        .select()
+        .then(function(equipamento) {
+            console.log(equipamento);
+            res.status(200).json(equipamento);
+        }, function(error) {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    });
+
+
     //Método responsável por cadastrar o manutencao na base de dados
     app.post('/manutencoes/manutencao', function(req, res){
         let manutencao = req.body;

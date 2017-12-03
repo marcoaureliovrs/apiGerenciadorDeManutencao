@@ -6,7 +6,8 @@ var agent = supertest.agent(app)
 
 var manutencao = {
 	"codManutencao": "UASHUASHASUHDUSHF",
-    "nomeLaboratorioSolicitante": "Delboni Auriemo Vila Diva",
+	"nomeLaboratorioSolicitante": "Delboni Auriemo",
+	"unidadeSolicitante":"Vila Diva",
     "enderecoLaboratorioSolicitante": "Av. Sapopemba 4100",
     "nomeFuncionarioSolicitante": "Marco Aurélio",
     "nomeFornecedor": "XPTO",
