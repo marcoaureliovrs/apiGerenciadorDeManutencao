@@ -62,6 +62,32 @@ api.consultaAgendamentos = function(req, res) {
     });
 }
 
+api.enviaMensagem = function(req, res) {
+    
+    // manutencao = JSON.stringify(manutencao);
+    var params = {
+        MessageBody: "Nova Manutenção agendada",
+        MessageAttributes: {
+            "manutencao": {
+                DataType: "String",
+                StringValue: JSON.stringify(manutencao)
+            }
+        },
+        QueueUrl: queueUrl,
+        DelaySeconds: 0
+    };
+    
+    sqs.sendMessage(params, function(err, data) {
+        if(err) {
+            console.log(err);
+            //res.send(err);
+        } 
+        else {
+            //res.send(data);
+            console.log(data);
+        } 
+    });
+}
 
 
 //Método responsável por cadastrar o manutencao na base de dados
@@ -73,7 +99,11 @@ api.cadastroManutencao = function(req, res) {
         .then(function(manutencao) {
             console.log(manutencao);
             
-            // manutencao = JSON.stringify(manutencao);
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.status(200).json(manutencao);
+
+             // manutencao = JSON.stringify(manutencao);
             var params = {
                 MessageBody: "Nova Manutenção agendada",
                 MessageAttributes: {
@@ -89,15 +119,14 @@ api.cadastroManutencao = function(req, res) {
             sqs.sendMessage(params, function(err, data) {
                 if(err) {
                     console.log(err);
+                    res.send(err);
                 } 
                 else {
+                    res.send(data);
                     console.log(data);
                 } 
             });
-        
-            res.setHeader('Content-Type', 'application/json');
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.status(200).json(manutencao);
+
 
         }, function(error) {
             console.log(error);
