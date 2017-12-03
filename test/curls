@@ -1,0 +1,1 @@
+curl http://ec2-54-233-106-93.sa-east-1.compute.amazonaws.com/manutencoes/manutencao -X POST -v -H "Content-type: application/json" -d @jsons/manutencao.json | json_pp

@@ -1,0 +1,17 @@
+{
+    "codManutencao": "UASHUASHASUHDUSHF",
+    "nomeLaboratorioSolicitante": "Delboni Auriemo",
+    "unidadeSolicitante": "Vila Diva",
+    "enderecoLaboratorioSolicitante": "Av. Sapopemba 4100",
+    "nomeFuncionarioSolicitante": "Marco Aurélio",
+    "nomeFornecedor": "XPTO",
+    "nomeTecnico": "Diego",
+    "codEquipamento": "3334444555",
+    "nomeEquipamento": "Máquina de Raio X",
+    "modeloEquipamento": "X3333",
+    "dataInicioManutencao": "2016-12-04T16:00:00Z",
+    "dataFinalManutencao": "2016-12-05T16:00:00Z",
+    "statusManutencao": "agendado",
+    "tipoManutencao": "Preventiva",
+    "laudoTecnicoManutencao": "Máquina com parafusos gastos"
+}

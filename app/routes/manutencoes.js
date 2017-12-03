@@ -13,6 +13,6 @@ module.exports = function(app){
         .get(api.consultaAgendamentos);
     
     app.route("/manutencoes/manutencao")
-        .get(api.cadastroManutencao);
+        .post(api.cadastroManutencao);
   
 }
