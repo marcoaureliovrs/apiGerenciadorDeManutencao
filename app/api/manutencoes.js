@@ -58,38 +58,36 @@ api.consultaAgendamentos = function(req, res) {
 
 
 
-
 //Método responsável por cadastrar o manutencao na base de dados
 api.cadastroManutencao = function(req, res) {
     let manutencao = req.body;
 
-    // manutencao = JSON.stringify(manutencao);
-    var params = {
-        MessageBody: "Nova Manutenção agendada",
-        MessageAttributes: {
-            "manutencao": {
-                DataType: "String",
-                StringValue: JSON.stringify(manutencao)
-            }
-        },
-        QueueUrl: queueUrl,
-        DelaySeconds: 0
-    };
-    
-    sqs.sendMessage(params, function(err, data) {
-        if(err) {
-            console.log(err);
-        } 
-        else {
-            console.log(data);
-        } 
-    });
-
-    model
+        model
         .create(manutencao)
         .then(function(manutencao) {
             console.log(manutencao);
             
+            // manutencao = JSON.stringify(manutencao);
+            var params = {
+                MessageBody: "Nova Manutenção agendada",
+                MessageAttributes: {
+                    "manutencao": {
+                        DataType: "String",
+                        StringValue: JSON.stringify(manutencao)
+                    }
+                },
+                QueueUrl: queueUrl,
+                DelaySeconds: 0
+            };
+            
+            sqs.sendMessage(params, function(err, data) {
+                if(err) {
+                    console.log(err);
+                } 
+                else {
+                    console.log(data);
+                } 
+            });
         
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Access-Control-Allow-Origin', '*');
