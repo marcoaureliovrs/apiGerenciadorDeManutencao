@@ -15,6 +15,9 @@ api.listarManutencoes = function(req, res) {
     .select()
     .then(function(manutencoes) {
         console.log(manutencoes);
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.status(200).json(manutencoes);
     }, function(error) {
         console.log(error);
@@ -29,6 +32,9 @@ api.detalhesManutencao = function(req, res) {
     .select()
     .then(function(manutencao) {
         console.log(manutencao);
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.status(200).json(manutencao);
 
     }, function(error) {
