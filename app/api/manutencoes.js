@@ -62,40 +62,11 @@ api.consultaAgendamentos = function(req, res) {
     });
 }
 
-api.enviaMensagem = function(req, res) {
-    
-    // manutencao = JSON.stringify(manutencao);
-    var params = {
-        MessageBody: "Nova Manutenção agendada",
-        MessageAttributes: {
-            "manutencao": {
-                DataType: "String",
-                StringValue: JSON.stringify(manutencao)
-            }
-        },
-        QueueUrl: queueUrl,
-        DelaySeconds: 0
-    };
-    
-    sqs.sendMessage(params, function(err, data) {
-        if(err) {
-            console.log(err);
-            //res.send(err);
-        } 
-        else {
-            //res.send(data);
-            console.log(data);
-        } 
-    });
-}
-
 
 //Método responsável por cadastrar o manutencao na base de dados
 api.cadastroManutencao = function(req, res) {
-    let manutencao = req.body;
-
         model
-        .create(manutencao)
+        .create(req.body)
         .then(function(manutencao) {
             console.log(manutencao);
             
