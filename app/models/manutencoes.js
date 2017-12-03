@@ -54,7 +54,7 @@ var schema = mongoose.Schema({
     },
     tipoManutencao: { //planejada, emergencial
         type: String,
-        required: true
+        required: false
     },
     laudoTecnicoManutencao: { //A Definir como será armazenado (Ex.: Scaneamento da Nota de Manutenção)
         type: String,
