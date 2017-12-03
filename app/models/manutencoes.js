@@ -2,27 +2,27 @@ var mongoose = require ('mongoose');
 var schema = mongoose.Schema({
     codManutencao: {
         type: Object,
-        required: true
+        required: false
     },
     nomeLaboratorioSolicitante: { //filial
 		type: String,
-		required: true
+		required: false
     },
     enderecoLaboratorioSolicitante: {
         type: String,
-        required: true,
+        required: false,
     },
     unidadeSolicitante:{
         type: String,
-        required: true,
+        required: false,
     },
     nomeFuncionarioSolicitante: {
         type: String,
-        required: true
+        required: false
     },
     nomeFornecedor: {
 		type: String,
-		required: true
+		required: false
     },
     nomeTecnico: {
 		type: String,
@@ -30,7 +30,7 @@ var schema = mongoose.Schema({
     },
     codEquipamento: {
         type: String,
-        required: true
+        required: false
     },
     nomeEquipamento: {
         type: String,
@@ -38,11 +38,11 @@ var schema = mongoose.Schema({
     },
     modeloEquipamento: {
         type: String,
-        required: true
+        required: false
     },
     dataInicioManutencao: {
         type: Date,
-        require: true
+        require: false
     },
     dataFinalManutencao: {
         type: Date,
@@ -50,7 +50,7 @@ var schema = mongoose.Schema({
     },
     statusManutencao:{ //agendado, andamento, finalizado
         type: String,
-        require: true
+        require: false
     },
     tipoManutencao: { //planejada, emergencial
         type: String,
