@@ -119,10 +119,10 @@ api.cadastroManutencao = function(req, res) {
             sqs.sendMessage(params, function(err, data) {
                 if(err) {
                     console.log(err);
-                    res.send(err);
+                    //res.send(err);
                 } 
                 else {
-                    res.send(data);
+                    //res.send(data);
                     console.log(data);
                 } 
             });
