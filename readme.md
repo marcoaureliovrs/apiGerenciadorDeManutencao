@@ -4,13 +4,13 @@ Aplicação desenvolvida no Hackathon DASA, com o objetivo de resolver o problem
 
 Pré Requisitos
 
-Nodejs 8.+
-npm
+Nodejs 8.+;
+npm;
 mongodb
 
 
 Instalação da API
 
-Para instalar a api basta baixar o projeto em seu ambiente e executar o comando ''' npm install ''' dentro do diretório do projeto, sem seguida execute ''' npm start ''' para inicializar o projeto, lembrando que para que este funcione normalmente é necessário que a máquina em questão tenha os pré requisitos listados no tópico acima. 
+Para instalar a api basta baixar o projeto em seu ambiente e executar o comando ``` npm install ``` dentro do diretório do projeto, sem seguida execute ```npm start ``` para inicializar o projeto, lembrando que para que este funcione normalmente é necessário que a máquina em questão tenha os pré requisitos listados no tópico acima. 
 
 Agradecemos a sua visita, se puder apoie esse projeto dando uma estrela a ele aqui no GitHub.
