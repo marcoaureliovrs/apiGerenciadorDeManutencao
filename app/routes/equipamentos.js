@@ -34,10 +34,6 @@ module.exports = function(app){
         });
     });
 
-    //Metódo responsável por retornar a consulta de manutenções agendadas
-    app.get('/manutencoes/agendamentos/', function(req,res) {
-
-    });
 
     //Método responsável por cadastrar o equipamento na base de dados
     app.post('/equipamentos/equipamento', function(req, res){

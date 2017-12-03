@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 
 consign({cwd: 'app'})
     .include('models')
+    .then('api')
     .then('routes')
-    .then('views')
     .into(app);
 
 module.exports = app;
